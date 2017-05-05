@@ -1,5 +1,5 @@
 {
-    "version": "5.1.0",
+    "version": "1.0.0",
     "summary": "Modified version of elm-plot for use in Humio",
     "repository": "https://github.com/humio/elm-plot.git",
     "license": "BSD3",
