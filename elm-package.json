@@ -1,11 +1,10 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "summary": "Modified version of elm-plot for use in Humio",
     "repository": "https://github.com/humio/elm-plot.git",
     "license": "BSD3",
     "source-directories": [
-        "./src",
-        "./docs/src"
+        "./src"
     ],
     "exposed-modules": [
         "Plot"
