@@ -1,7 +1,7 @@
 {
     "version": "5.1.0",
-    "summary": "Tufte plots and charts in SVG and Elm!",
-    "repository": "https://github.com/terezka/elm-plot.git",
+    "summary": "Modified version of elm-plot for use in Humio",
+    "repository": "https://github.com/humio/elm-plot.git",
     "license": "BSD3",
     "source-directories": [
         "./src",

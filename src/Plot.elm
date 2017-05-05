@@ -1206,6 +1206,12 @@ viewBarsCustom customizations bars data =
                 hints ->
                     Html.map never <| customizations.hintContainer summary hints
 
+        viewJunks =
+            customizations.junk summary
+                |> List.map (viewActualJunk summary)
+                |> g [ class "elm-plot__junk" ]
+                |> Just
+
         children =
             List.filterMap identity
                 [ Just (defineClipPath customizations summary)
@@ -1215,6 +1221,7 @@ viewBarsCustom customizations bars data =
                 , viewHorizontalAxis summary customizations.horizontalAxis xLabels []
                 , viewVerticalAxis summary bars.axis []
                 , viewGlitter
+                , viewJunks
                 ]
     in
         div (containerAttributes customizations summary)
@@ -1772,12 +1779,13 @@ viewLabel attributes string =
 
 viewGlitterLines :
     PlotSummary
-    -> { a
-        | xLine : Maybe (AxisSummary -> LineCustomizations)
-        , yLine : Maybe (AxisSummary -> LineCustomizations)
-        , x : Float
-        , y : Float
-       }
+    ->
+        { a
+            | xLine : Maybe (AxisSummary -> LineCustomizations)
+            , yLine : Maybe (AxisSummary -> LineCustomizations)
+            , x : Float
+            , y : Float
+        }
     -> List (Svg Never)
 viewGlitterLines summary { xLine, yLine, x, y } =
     [ viewAxisLine summary (\y -> { x = x, y = y }) (Maybe.map (\toLine -> toLine summary.y) xLine)
